@@ -1,0 +1,9 @@
+{
+    "diagnostics.globals": [
+        "map",
+        "get_args"
+    ],
+    "diagnostics.disable": [
+        "param-type-mismatch"
+    ]
+}
