@@ -55,7 +55,7 @@ return {
 				-- Be aware that you also will need to properly configure your LSP server to
 				-- provide the code lenses.
 				codelens = {
-					enabled = false,
+					enabled = true,
 				},
 				-- Enable lsp cursor word highlighting
 				document_highlight = {
@@ -74,8 +74,8 @@ return {
 				-- `bufnr` and `filter` is handled by the LazyVim formatter,
 				-- but can be also overridden when specified
 				format = {
-					formatting_options = nil,
-					timeout_ms = nil,
+					-- formatting_options = nil,
+					-- timeout_ms = nil,
 				},
 				-- LSP Server Settings
 				---@type lspconfig.options
@@ -140,7 +140,7 @@ return {
 			LazyVim.lsp.setup()
 			LazyVim.lsp.on_dynamic_capability(require("lazyvim.plugins.lsp.keymaps").on_attach)
 
-			LazyVim.lsp.words.setup(opts.document_highlight)
+			-- LazyVim.lsp.words.setup(opts.document_highlight)
 
 			-- diagnostics signs
 			if vim.fn.has("nvim-0.10.0") == 0 then
