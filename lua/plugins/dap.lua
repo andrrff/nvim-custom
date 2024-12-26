@@ -143,6 +143,16 @@ return {
 				},
 			}
 		end
+		if not dap.adapters["coreclr"] then
+			require("dap").adapters["coreclr"] = {
+				type = "executable",
+				command = vim.fn.exepath("netcoredbg"),
+				args = { "--interpreter=vscode" },
+				options = {
+					detached = false,
+				},
+			}
+		end
 		for _, lang in ipairs({ "cs", "fsharp", "vb" }) do
 			if not dap.configurations[lang] then
 				dap.configurations[lang] = {
@@ -156,6 +166,20 @@ return {
 						end,
 						cwd = "${workspaceFolder}",
 					},
+          {
+            type = "coreclr",
+            name = "launch - netcoredbg",
+            request = "launch",
+            program = function()
+              return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+            end,
+          },
+          {
+            type = "coreclr",
+            name = "attach - netcoredbg",
+            request = "attach",
+            processId = require('dap.utils').pick_process,
+          }
 				}
 			end
 		end

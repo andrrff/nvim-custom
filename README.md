@@ -19,3 +19,8 @@ install gcc compiler
 ```
 or
 access https://github.com/msys2/msys2-installer/releases/
+
+install perl
+./essentials/strawberry-perl-5.40.0.1-64bit.msi
+or 
+access https://strawberryperl.com/
